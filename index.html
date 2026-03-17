@@ -587,6 +587,11 @@ section { padding: 130px 60px; position: relative; }
   cursor: none; transition: border-color .2s, background .2s, transform .15s;
 }
 .proj-nav-btn:hover { border-color: var(--accent); background: rgba(91,143,255,.1); transform: scale(1.1); }
+.proj-nav-btn:disabled {
+  opacity: .4;
+  transform: none;
+  cursor: not-allowed;
+}
 .proj-nav-btn svg { width: 14px; height: 14px; fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
 .proj-nav-btn:hover svg { stroke: var(--accent); }
 
@@ -888,6 +893,72 @@ footer {
   .projects-bottom-bar { padding: 12px 24px 28px; }
   .project-card { width: 300px; min-height: 420px; max-height: calc(100vh - 200px); }
   .project-thumb { height: 150px; }
+}
+@media (max-width: 767px) {
+  #hero {
+    min-height: auto;
+    padding-bottom: 48px;
+  }
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 20px 28px;
+    margin-top: 40px;
+  }
+  .scroll-indicator { display: none; }
+
+  #projects.mobile-projects {
+    height: auto !important;
+    padding: 0 0 56px;
+  }
+  #projects.mobile-projects .projects-sticky-inner {
+    height: auto;
+    min-height: 0;
+  }
+  #projects.mobile-projects .projects-top-bar {
+    gap: 20px;
+  }
+  #projects.mobile-projects .proj-meta-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+  #projects.mobile-projects .proj-progress-rail {
+    width: min(100%, 240px);
+  }
+  #projects.mobile-projects .proj-drag-hint {
+    display: none;
+  }
+  #projects.mobile-projects .projects-overflow {
+    overflow: hidden;
+    padding: 0 24px;
+    align-items: stretch;
+  }
+  #projects.mobile-projects .projects-track {
+    gap: 20px;
+    will-change: transform;
+  }
+  #projects.mobile-projects .project-card {
+    width: calc(100vw - 48px);
+    min-height: 0;
+    max-height: none;
+  }
+  #projects.mobile-projects .projects-bottom-bar {
+    justify-content: center;
+    gap: 18px;
+    padding-top: 20px;
+  }
+  #projects.mobile-projects .proj-nav-btn {
+    width: 52px;
+    height: 52px;
+    background: rgba(91,143,255,.12);
+    border-color: rgba(91,143,255,.28);
+    box-shadow: 0 12px 30px rgba(0,0,0,.28);
+    cursor: pointer;
+  }
+  #projects.mobile-projects .proj-nav-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--text);
+  }
 }
 
 ::selection { background: rgba(91,143,255,.22); }
@@ -1577,28 +1648,59 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
   const cards     = track.querySelectorAll('.project-card');
   const N         = cards.length;
   const GAP       = 28;
+  const mobileMQ  = window.matchMedia('(max-width: 767px)');
+  let currentIdx  = 0;
+  let st;
+  let resizeTimer;
 
   // ── measure ─────────────────────────────────────────────────────────────
   function cardWidth()  { return cards[0] ? cards[0].offsetWidth : 440; }
-  function totalTrack() { return cardWidth() * N + GAP * (N - 1); }
+  function totalTrack() { return cardWidth() * N + mobileGap() * (N - 1); }
   function maxX()       { return Math.max(0, totalTrack() - overflow.offsetWidth); }
+  function isMobile()   { return mobileMQ.matches; }
+  function clampIndex(idx) { return Math.max(0, Math.min(N - 1, idx)); }
+  function progressWidth(idx) { return ((idx + 1) / N) * 100; }
+  function mobileGap() { return isMobile() ? 20 : GAP; }
 
-  // ── set section height so the pin lasts long enough ──────────────────
-  function setSectionHeight() {
-    section.style.height = (window.innerHeight + maxX()) + 'px';
+  function updateNav(idx) {
+    currentIdx = clampIndex(idx);
+    numEl.textContent = String(currentIdx + 1).padStart(2, '0');
+    thumb.style.width = progressWidth(currentIdx) + '%';
+    btnPrev.disabled = currentIdx === 0;
+    btnNext.disabled = currentIdx === N - 1;
   }
-  setSectionHeight();
 
-  // ── GSAP pin: section is pinned, inner stays at top=0 ──────────────
-  // We pin the sticky inner div by animating nothing on it — the section
-  // height creates the scroll space, inner uses position:sticky via CSS.
-  // Then a scrub tween moves the track leftward.
-  inner.style.position = 'sticky';
-  inner.style.top = '0';
+  function targetXForIndex(idx) {
+    const target = clampIndex(idx) * (cardWidth() + mobileGap());
+    return Math.min(target, maxX());
+  }
 
-  let st;
-  function buildST() {
-    if (st) { st.kill(); }
+  function killDesktopScroll() {
+    if (st) {
+      st.scrollTrigger.kill();
+      st.kill();
+      st = null;
+    }
+  }
+
+  function enableMobileMode() {
+    section.classList.add('mobile-projects');
+    killDesktopScroll();
+    section.style.height = 'auto';
+    inner.style.position = 'relative';
+    inner.style.top = 'auto';
+    gsap.set(track, { x: -targetXForIndex(currentIdx) });
+    updateNav(currentIdx);
+  }
+
+  function enableDesktopMode() {
+    section.classList.remove('mobile-projects');
+    section.style.height = (window.innerHeight + maxX()) + 'px';
+    inner.style.position = 'sticky';
+    inner.style.top = '0';
+    gsap.set(track, { x: 0 });
+    killDesktopScroll();
+
     const mx = maxX();
     st = gsap.to(track, {
       x: -mx,
@@ -1606,19 +1708,36 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
       scrollTrigger: {
         trigger: section,
         start:  'top top',
-        end:    () => '+=' + mx,
+        end:    () => '+=' + maxX(),
         scrub:  0.8,
         invalidateOnRefresh: true,
         onUpdate(self) {
           const pct = self.progress * 100;
           thumb.style.width = pct + '%';
-          const idx = Math.min(N, Math.floor(self.progress * N) + 1);
-          numEl.textContent = String(idx).padStart(2, '0');
+          const idx = Math.min(N - 1, Math.floor(self.progress * N));
+          currentIdx = idx;
+          numEl.textContent = String(idx + 1).padStart(2, '0');
+          btnPrev.disabled = idx === 0;
+          btnNext.disabled = idx === N - 1;
         }
       }
     });
+
+    const progress = st.scrollTrigger ? st.scrollTrigger.progress : 0;
+    updateNav(Math.min(N - 1, Math.floor(progress * N)));
   }
-  buildST();
+
+  function applyProjectMode() {
+    if (isMobile()) {
+      enableMobileMode();
+      return;
+    }
+
+    enableDesktopMode();
+    ScrollTrigger.refresh();
+  }
+
+  applyProjectMode();
 
   // ── entrance stagger ────────────────────────────────────────────────
   gsap.set(cards, { opacity: 0, y: 40 });
@@ -1636,13 +1755,24 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
   });
 
   // ── prev / next buttons ─────────────────────────────────────────────
-  let currentIdx = 0;
   function scrollToCard(idx) {
-    idx = Math.max(0, Math.min(N - 1, idx));
-    currentIdx = idx;
-    const cw = cardWidth();
-    const targetX = Math.min(idx * (cw + GAP), maxX());
-    // scroll the window to the matching position inside the pin
+    const nextIdx = clampIndex(idx);
+    const targetX = targetXForIndex(nextIdx);
+
+    if (isMobile()) {
+      currentIdx = nextIdx;
+      gsap.to(track, {
+        x: -targetX,
+        duration: 0.45,
+        ease: 'power3.out',
+        overwrite: true,
+        onUpdate: () => updateNav(currentIdx),
+        onComplete: () => updateNav(currentIdx)
+      });
+      return;
+    }
+
+    currentIdx = nextIdx;
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const ratio = maxX() > 0 ? targetX / maxX() : 0;
     const scrollTarget = sectionTop + ratio * maxX();
@@ -1650,13 +1780,14 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
   }
   btnPrev.addEventListener('click', () => scrollToCard(currentIdx - 1));
   btnNext.addEventListener('click', () => scrollToCard(currentIdx + 1));
+  updateNav(0);
 
   // ── resize ──────────────────────────────────────────────────────────
-  let rt;
   window.addEventListener('resize', () => {
-    clearTimeout(rt);
-    rt = setTimeout(() => { setSectionHeight(); buildST(); ScrollTrigger.refresh(); }, 200);
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(applyProjectMode, 200);
   });
+  mobileMQ.addEventListener('change', applyProjectMode);
 })();
 
 /* ── CONTACT CARDS ── */
