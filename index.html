@@ -580,6 +580,11 @@ section { padding: 130px 60px; position: relative; }
   display: flex; align-items: center; gap: 14px;
   flex-shrink: 0; position: relative; z-index: 2;
 }
+@media (min-width: 768px) {
+  .projects-bottom-bar {
+    display: none !important;
+  }
+}
 .proj-nav-btn {
   width: 36px; height: 36px; border-radius: 50%;
   background: var(--surface); border: 1px solid var(--border);
@@ -1037,7 +1042,7 @@ footer {
       <div class="hero-img-ring2"></div>
       <div class="hero-img-ring"></div>
       <img class="hero-photo"
-        src="https://media.licdn.com/dms/image/v2/D5603AQHn04L5IryRWQ/profile-displayphoto-crop_800_800/B56ZwecG7fHAAI-/0/1770037212363?e=1775088000&v=beta&t=eRZ37PN2msXZKcuXnDtf543PgblxjzEjoaRaOkFyrWE"
+        src="https://media.licdn.com/dms/image/v2/D5603AQHn04L5IryRWQ/profile-displayphoto-scale_200_200/B56ZwecG7fHAAY-/0/1770037212447?e=1776902400&v=beta&t=YWi-xuMJ7xNiT9KW7v1kPRfIq0DkFCRc0RMuCmoS198"
         alt="Ajay Mathur" loading="eager">
     </div>
   </div>
@@ -1259,7 +1264,7 @@ footer {
         <h2 class="section-title">Live <span>Work</span></h2>
       </div>
       <div class="proj-meta-right">
-        <div class="proj-counter-txt"><em id="proj-num">01</em>&nbsp;/ 08</div>
+        <div class="proj-counter-txt"><em id="proj-num">01</em>&nbsp;/ 09</div>
         <div class="proj-progress-rail"><div class="proj-progress-thumb" id="proj-thumb"></div></div>
         <div class="proj-drag-hint">
           <svg viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1277,6 +1282,31 @@ footer {
           <div class="project-card-bg"></div>
           <div class="project-card-glow"></div>
           <div class="project-thumb">
+            <img src="https://i.ibb.co/BKNzTmtx/hero-section.png"
+                 alt="Kumar Architects"
+                 loading="eager"
+                 decoding="async"
+                 fetchpriority="high"
+                 onerror="this.parentElement.innerHTML='<div class=&quot;project-thumb-placeholder&quot;><span class=&quot;project-thumb-icon&quot;>🏢</span></div>'">
+            <div class="project-thumb-fade"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-num">01 / 09</span>
+              <span class="project-type">Architecture · Business Website</span>
+            </div>
+            <div class="project-name">Kumar Architects</div>
+            <div class="project-desc">Modern architecture firm website showcasing projects, design portfolio, and company profile. Built for performance, responsiveness, and strong visual presentation.</div>
+            <div class="project-link-wrap"><a href="http://kumararchitects.in/" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visit Website <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-bg"></div>
+          <div class="project-card-glow"></div>
+          <div class="project-thumb">
             <img src="https://api.microlink.io/?url=https%3A%2F%2Fjs-instituteofdesign.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800&waitFor=1500"
                  onerror="this.parentElement.innerHTML='<div class=&quot;project-thumb-placeholder&quot;><span class=&quot;project-thumb-icon&quot;>🎨</span></div>'"
                  alt="JS Institute of Design" loading="lazy">
@@ -1284,7 +1314,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">01 / 08</span>
+              <span class="project-num">02 / 09</span>
               <span class="project-type">Education · Full Site</span>
             </div>
             <div class="project-name">JS Institute of Design</div>
@@ -1306,7 +1336,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">02 / 08</span>
+              <span class="project-num">03 / 09</span>
               <span class="project-type">Education · Full Site</span>
             </div>
             <div class="project-name">Rungta College</div>
@@ -1328,7 +1358,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">03 / 08</span>
+              <span class="project-num">04 / 09</span>
               <span class="project-type">Admissions · Landing Page</span>
             </div>
             <div class="project-name">Allied Chandigarh</div>
@@ -1350,7 +1380,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">04 / 08</span>
+              <span class="project-num">05 / 09</span>
               <span class="project-type">Admissions · Landing Page</span>
             </div>
             <div class="project-name">Allied Academy</div>
@@ -1372,7 +1402,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">05 / 08</span>
+              <span class="project-num">06 / 09</span>
               <span class="project-type">Services · Full Site</span>
             </div>
             <div class="project-name">AJM Disposal</div>
@@ -1394,7 +1424,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">06 / 08</span>
+              <span class="project-num">07 / 09</span>
               <span class="project-type">University · Full Site</span>
             </div>
             <div class="project-name">Universal AI University</div>
@@ -1416,7 +1446,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">07 / 08</span>
+              <span class="project-num">08 / 09</span>
               <span class="project-type">Programme · Landing Page</span>
             </div>
             <div class="project-name">Universal AI — BTech</div>
@@ -1438,7 +1468,7 @@ footer {
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-num">08 / 08</span>
+              <span class="project-num">09 / 09</span>
               <span class="project-type">Programme · Landing Page</span>
             </div>
             <div class="project-name">Universal AI — MBA</div>
@@ -1695,21 +1725,21 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
 
   function enableDesktopMode() {
     section.classList.remove('mobile-projects');
-    section.style.height = (window.innerHeight + maxX()) + 'px';
+    const totalScroll = track.scrollWidth - window.innerWidth + 120;
+    section.style.height = (window.innerHeight + totalScroll) + 'px';
     inner.style.position = 'sticky';
     inner.style.top = '0';
     gsap.set(track, { x: 0 });
     killDesktopScroll();
 
-    const mx = maxX();
     st = gsap.to(track, {
-      x: -mx,
+      x: -totalScroll,
       ease: 'none',
       scrollTrigger: {
         trigger: section,
         start:  'top top',
-        end:    () => '+=' + maxX(),
-        scrub:  0.8,
+        end:    () => '+=' + totalScroll,
+        scrub:  1,
         invalidateOnRefresh: true,
         onUpdate(self) {
           const pct = self.progress * 100;
