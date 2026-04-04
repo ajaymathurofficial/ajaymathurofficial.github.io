@@ -401,6 +401,26 @@ section { padding: 130px 60px; position: relative; }
   box-shadow: 0 8px 24px rgba(0,0,0,.3);
 }
 .cert-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cert-icon {
+  width: 20px; height: 20px;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0.85;
+  animation: certPulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.cert-icon svg {
+  width: 18px; height: 18px;
+  filter: drop-shadow(0 0 6px rgba(91,143,255,0.35));
+}
+.cert-pill:hover .cert-icon {
+  transform: translateY(-2px) scale(1.12);
+  opacity: 1;
+}
+@keyframes certPulse {
+  0% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
 .cert-name { font-family: var(--font-display); font-size: .85rem; font-weight: 600; }
 .cert-year { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); margin-left: auto; }
 
@@ -1069,31 +1089,68 @@ footer {
       </div>
       <div class="reveal">
         <div class="cert-pill">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+            </svg>
+          </div>
           <div class="cert-dot" style="background:#f97316;box-shadow:0 0 8px #f97316"></div>
           <span class="cert-name">AWS Solutions Architect – Associate</span>
           <span class="cert-year">2026</span>
         </div>
         <div class="cert-pill">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
           <div class="cert-dot" style="background:#ef4444;box-shadow:0 0 8px #ef4444"></div>
           <span class="cert-name">RHCE</span>
           <span class="cert-year">2018</span>
         </div>
         <div class="cert-pill">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"/>
+              <line x1="12" y1="19" x2="20" y2="19"/>
+            </svg>
+          </div>
           <div class="cert-dot" style="background:#f43f5e;box-shadow:0 0 8px #f43f5e"></div>
           <span class="cert-name">RHCSA</span>
           <span class="cert-year">2018</span>
         </div>
         <div class="cert-pill">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
           <div class="cert-dot" style="background:#34d399;box-shadow:0 0 8px #34d399"></div>
           <span class="cert-name">SEO Certification</span>
           <span class="cert-year">2017</span>
         </div>
         <div class="cert-pill">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5b8fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
           <div class="cert-dot" style="background:#5b8fff;box-shadow:0 0 8px #5b8fff"></div>
           <span class="cert-name">WordPress Certification</span>
           <span class="cert-year">2018</span>
         </div>
         <div class="cert-pill">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
           <div class="cert-dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa"></div>
           <span class="cert-name">Digital Marketing Certification</span>
           <span class="cert-year">—</span>
