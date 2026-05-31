@@ -1,0 +1,685 @@
+/* ============================================================
+   MOBILE.CSS — Dedicated responsive stylesheet
+   Ajay Mathur Portfolio
+   ─────────────────────────────────────────────────────────────
+   Breakpoints:
+     861px+  → Desktop   (sticky sidebar, full layout)
+     641–860 → Tablet    (horizontal sidebar strip, no sticky)
+     ≤640    → Phone     (stacked hero, vertical layout)
+     ≤390    → Small     (iPhone SE, Galaxy A, etc.)
+     ≤320    → Micro     (Galaxy Fold closed)
+   ─────────────────────────────────────────────────────────────
+   KEY FIX: NEVER use overflow:hidden on .home-wrapper —
+   it breaks position:sticky on child elements.
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   0. GLOBAL OVERFLOW GUARD
+   Use clip instead of hidden so sticky still works on children
+   ───────────────────────────────────────────────────────────── */
+html {
+  overflow-x: clip; /* clip ≠ hidden — sticky still works */
+}
+
+body {
+  overflow-x: clip;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SEMANTIC LAYOUT CLASSES  (replace inline styles)
+   ───────────────────────────────────────────────────────────── */
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.cta-btn-row {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   1. DESKTOP — 861px and above
+   Sticky sidebar verified working.
+   ═════════════════════════════════════════════════════════════ */
+@media (min-width: 861px) {
+
+  /* Sticky sidebar: must have align-self:flex-start and a
+     parent that is NOT overflow:hidden/auto/scroll */
+  .home-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: flex-start;
+  }
+
+  /* Ensure wrapper never gets overflow that kills sticky */
+  .home-wrapper {
+    overflow: visible;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   2. TABLET — 860px and below
+   Sidebar collapses to horizontal strip. No sticky.
+   ═════════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+
+  /* ── Wrapper: NO overflow:hidden — sticky must not be broken */
+  .home-wrapper {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    padding-inline: 1.5rem;
+    max-width: 100%;
+    /* DO NOT add overflow:hidden here */
+  }
+
+  /* ── Sidebar → compact horizontal strip ── */
+  .home-sidebar {
+    position: static; /* no sticky on tablet/mobile */
+    width: 100%;
+    flex: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  .sidebar-portrait {
+    width: 88px;
+    height: 108px;
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+
+  .sidebar-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar-info__name {
+    font-size: 1.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sidebar-info__role {
+    font-size: 0.77rem;
+    line-height: 1.5;
+    margin-top: 0.2rem;
+  }
+
+  .sidebar-socials {
+    gap: 0.5rem;
+    margin-top: 0.1rem;
+  }
+
+  /* ── Content column ── */
+  .home-content {
+    padding-left: 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* ── Bio heading ── */
+  .home-bio__heading {
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
+  }
+
+  /* ── Marquee: full-bleed without causing scroll ── */
+  .marquee {
+    overflow: hidden;
+    margin-inline: -1.5rem;
+    width: calc(100% + 3rem);
+  }
+
+  /* ── Service cards: full-bleed strip ── */
+  .service-card-row {
+    margin-inline: -1.5rem;
+    width: calc(100% + 3rem);
+    padding-inline: 1.5rem;
+    scroll-padding-left: 1.5rem;
+  }
+
+  .service-card {
+    flex: 0 0 270px;
+    width: 270px;
+  }
+
+  /* ── Work grid → horizontal scroll slider ── */
+  .work-grid {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+    padding-bottom: 0.75rem;
+    width: calc(100% + 3rem);
+    max-width: calc(100% + 3rem);
+  }
+
+  .work-grid::-webkit-scrollbar { display: none; }
+
+  .work-card {
+    flex: 0 0 min(80vw, 360px);
+    width: min(80vw, 360px);
+    scroll-snap-align: start;
+    cursor: pointer;
+  }
+
+  /* ── CTA heading ── */
+  .home-cta__heading {
+    font-size: clamp(2.4rem, 9vw, 4rem);
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   3. MOBILE — 640px and below
+   Full mobile-first dedicated layout.
+   ═════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* ── Wrapper ── */
+  .home-wrapper {
+    padding-top: 4.5rem;
+    padding-inline: 1.125rem;
+    gap: 0;
+  }
+
+  /* ── Mobile Hero: portrait stacks vertically ── */
+  .home-sidebar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1rem 0 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Portrait: full-width, maintains aspect ratio without crop cutoff */
+  .sidebar-portrait {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: 420px;
+    border-radius: 12px;
+  }
+
+  .sidebar-portrait__img {
+    object-position: center top;
+  }
+
+  /* Status pill */
+  .status-pill {
+    font-size: 0.67rem;
+    padding: 0.28rem 0.7rem;
+    gap: 0.45rem;
+  }
+
+  /* Name */
+  .sidebar-info {
+    flex: none;
+    width: 100%;
+  }
+
+  .sidebar-info__name {
+    font-size: 1.5rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .sidebar-info__role {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    line-height: 1.5;
+    margin-top: 0.15rem;
+  }
+
+  /* Socials */
+  .sidebar-socials {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.1rem;
+  }
+
+  .sidebar-socials__link {
+    font-size: 0.67rem;
+    padding: 0.28rem 0.62rem;
+  }
+
+  /* Location */
+  .home-sidebar > p {
+    font-size: 0.63rem !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.55 !important;
+  }
+
+  /* ─────────────── BIO SECTION ─────────────── */
+  .home-bio {
+    padding-bottom: 1.75rem;
+    margin-bottom: 0;
+  }
+
+  .sec-label {
+    margin-bottom: 1rem;
+    font-size: 0.67rem;
+  }
+
+  .home-bio__heading {
+    font-size: clamp(2.4rem, 12.5vw, 3.6rem);
+    line-height: 0.93;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.1rem;
+  }
+
+  .home-bio__lead {
+    font-size: 0.875rem;
+    line-height: 1.72;
+    margin-bottom: 1.1rem;
+    max-width: 100%;
+    color: var(--ink-2);
+  }
+
+  /* Stats: 3-column equal grid */
+  .home-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .home-stat {
+    flex: none;
+    gap: 0.15rem;
+    text-align: center;
+    padding: 0.85rem 0.4rem;
+    border-left: 1px solid var(--border);
+    border-radius: 0;
+  }
+
+  .home-stat:first-child {
+    border-left: none;
+  }
+
+  /* Override desktop left-border + padding */
+  .home-stat:not(:first-child) {
+    border-left: 1px solid var(--border);
+    padding-left: 0.4rem;
+  }
+
+  .home-stat__num {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    letter-spacing: -0.04em;
+  }
+
+  .home-stat__label {
+    font-size: 0.53rem;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    margin-top: 0.1rem;
+  }
+
+  /* Bio CTA button row: stack on mobile */
+  .bio-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .bio-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* General btn sizing on mobile */
+  .btn {
+    padding: 0.6rem 1.35rem;
+    font-size: 0.82rem;
+  }
+
+  /* ─────────────── MARQUEE ─────────────── */
+  .marquee {
+    overflow: hidden;
+    margin-inline: -1.125rem;
+    width: calc(100% + 2.25rem);
+    padding-block: 0.85rem;
+    margin-top: 0;
+  }
+
+  .marquee__item {
+    font-size: clamp(0.85rem, 3.8vw, 1.3rem);
+    padding-inline: 1.25rem;
+  }
+
+  /* ─────────────── SERVICES SECTION ─────────────── */
+  .home-services {
+    padding-top: 2.5rem !important;
+    margin-bottom: 0;
+  }
+
+  /* Section headings */
+  .home-services h2,
+  .home-projects h2 {
+    font-size: clamp(1.75rem, 7.5vw, 2.6rem) !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  /* Service card horizontal strip */
+  .service-card-row {
+    gap: 10px;
+    height: 216px;
+    margin-inline: -1.125rem;
+    padding-inline: 1.125rem;
+    width: calc(100% + 2.25rem);
+    scroll-padding-left: 1.125rem;
+    margin-top: 1.25rem !important;
+  }
+
+  .service-card {
+    flex: 0 0 236px;
+    width: 236px;
+    padding: 22px 15px 16px;
+    gap: 14px;
+  }
+
+  .service-card__title {
+    font-size: 0.98rem;
+  }
+
+  .service-card__desc {
+    font-size: 0.76rem;
+    line-height: 1.55;
+  }
+
+  /* Service accordion rows */
+  .services-list {
+    padding-top: 0;
+    margin-top: 1.5rem;
+  }
+
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    padding-block: 1.35rem;
+  }
+
+  .service-row__num {
+    font-size: 0.6rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .service-row__title {
+    font-size: clamp(1.05rem, 4.8vw, 1.55rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+
+  .service-row__desc {
+    font-size: 0.8rem;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  .service-row__tags {
+    margin-top: 0.65rem;
+  }
+
+  .service-row__arrow {
+    display: none;
+  }
+
+  /* ─────────────── PROJECTS SECTION ─────────────── */
+  .home-projects {
+    padding-top: 2.5rem !important;
+    margin-bottom: 0;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Projects header row: stack on mobile */
+  .section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Filter pill strip: scroll horizontally if needed */
+  #project-filters {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+
+  #project-filters::-webkit-scrollbar { display: none; }
+
+  .proj-filter {
+    font-size: 0.71rem;
+    padding: 0.36rem 0.85rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    min-height: 34px;
+  }
+
+  /* Work grid: full-bleed horizontal slider */
+  .work-grid {
+    margin-inline: -1.125rem;
+    padding-inline: 1.125rem;
+    width: calc(100% + 2.25rem);
+    max-width: calc(100% + 2.25rem);
+    gap: 0.85rem;
+    margin-top: 1.25rem;
+    /* Consistent card heights via align-items */
+    align-items: stretch;
+  }
+
+  .work-card {
+    flex: 0 0 min(78vw, 290px);
+    width: min(78vw, 290px);
+    border-radius: 12px;
+    cursor: pointer;
+    /* Consistent height for all cards */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure image area is always same height */
+  .work-card__img-wrap {
+    aspect-ratio: 16 / 10;
+    flex-shrink: 0;
+  }
+
+  .work-card__info {
+    padding: 0.85rem 1rem;
+    flex: 1;
+  }
+
+  .work-card__title {
+    font-size: 0.97rem;
+    letter-spacing: -0.015em;
+  }
+
+  .work-card__sub {
+    font-size: 0.61rem;
+  }
+
+  /* Slider pagination dots */
+  .project-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 1.1rem;
+  }
+
+  .slider-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .slider-dot--active {
+    width: 18px;
+    border-radius: 3px;
+    transform: none;
+  }
+
+  /* ─────────────── CTA SECTION ─────────────── */
+  .home-cta {
+    padding-top: 2.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .home-cta__heading {
+    font-size: clamp(2.1rem, 10.5vw, 3.3rem);
+    letter-spacing: -0.035em;
+    margin-bottom: 1.1rem;
+    line-height: 1.0;
+  }
+
+  .home-cta > p {
+    font-size: 0.875rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.7 !important;
+    color: var(--ink-3) !important;
+  }
+
+  /* CTA button row: stack vertically */
+  .cta-btn-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .cta-btn-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ─────────────── FLOAT BUTTON ─────────────── */
+  .wa-float {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    height: 44px;
+    width: 44px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .wa-float__text { display: none; }
+
+  .wa-float svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   4. SMALL PHONES — 390px and below
+   ═════════════════════════════════════════════════════════════ */
+@media (max-width: 390px) {
+
+  .home-wrapper { padding-inline: 0.9rem; }
+
+  .home-bio__heading {
+    font-size: clamp(2.1rem, 13vw, 2.8rem);
+  }
+
+  .marquee,
+  .service-card-row,
+  .work-grid {
+    margin-inline: -0.9rem;
+    width: calc(100% + 1.8rem);
+  }
+
+  .marquee { padding-inline: 0; }
+  .service-card-row { padding-inline: 0.9rem; scroll-padding-left: 0.9rem; }
+  .work-grid { padding-inline: 0.9rem; }
+
+  .service-card {
+    flex: 0 0 220px;
+    width: 220px;
+  }
+
+  .work-card {
+    flex: 0 0 min(82vw, 270px);
+    width: min(82vw, 270px);
+  }
+
+  .home-cta__heading {
+    font-size: clamp(1.9rem, 12vw, 2.8rem);
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   5. MICRO — 320px and below (Galaxy Fold, etc.)
+   ═════════════════════════════════════════════════════════════ */
+@media (max-width: 320px) {
+
+  .home-wrapper { padding-inline: 0.75rem; }
+
+  .home-bio__heading { font-size: 2rem; letter-spacing: -0.03em; }
+
+  .home-stat__num { font-size: 1.35rem; }
+  .home-stat__label { font-size: 0.47rem; }
+
+  .service-card {
+    flex: 0 0 200px;
+    width: 200px;
+    padding: 18px 13px 14px;
+  }
+
+  .work-card {
+    flex: 0 0 85vw;
+    width: 85vw;
+  }
+
+  .home-cta__heading { font-size: 1.75rem; }
+
+  .marquee,
+  .service-card-row,
+  .work-grid {
+    margin-inline: -0.75rem;
+    width: calc(100% + 1.5rem);
+  }
+
+  .service-card-row { padding-inline: 0.75rem; }
+  .work-grid { padding-inline: 0.75rem; }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   6. TOUCH DEVICES
+   ═════════════════════════════════════════════════════════════ */
+@media (pointer: coarse) {
+  body, a, button { cursor: auto !important; }
+  .work-card, .proj-filter { cursor: pointer !important; }
+
+  /* Disable tilt hover on touch (perf) */
+  .work-card:hover { transform: none !important; }
+
+  /* Slightly larger tap zones */
+  .proj-filter { min-height: 36px; }
+  .sidebar-socials__link { min-height: 32px; line-height: 32px; padding-block: 0; }
+  .nav-toggle { padding: 6px; }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found · Ajay Mathur</title>
+  <meta name="description" content="The page you are looking for doesn't exist. Return to Ajay Mathur's homepage.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <header id="site-header" class="header" role="banner">
+    <div class="header__inner">
+
+      <a href="index.html" class="logo" aria-label="Ajay Mathur — Home">
+        <span class="logo__name">Ajay Mathur</span>
+        <span class="logo__dot" aria-hidden="true"></span>
+      </a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="nav-menu" class="nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav__list" role="list">
+          <li><a href="index.html#services" class="nav__link">Services</a></li>
+          <li><a href="index.html#work"     class="nav__link">Work</a></li>
+          <li><a href="index.html#contact"  class="nav__link">Contact</a></li>
+        </ul>
+        <a href="https://wa.me/919310282075" target="_blank" rel="noopener noreferrer" class="nav__cta" data-magnetic>
+          Start on WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-404 section" aria-labelledby="error-heading">
+      <div class="container" style="text-align:center;" data-stagger>
+        <p class="page-404__code reveal" aria-hidden="true">404</p>
+        <p class="sec-label reveal reveal-delay-1" style="justify-content: center;">Page not found</p>
+        <h1 id="error-heading" class="reveal reveal-delay-2" style="font-size: clamp(2rem,5vw,3.5rem); margin-bottom: var(--space-sm); letter-spacing:-0.03em;">
+          This page doesn't exist.
+        </h1>
+        <p class="reveal reveal-delay-3" style="color: var(--ink-2); margin-bottom: var(--space-md); max-width: 420px; margin-inline: auto;">
+          The URL you entered isn't available. Let's get you back on track.
+        </p>
+        <div class="reveal reveal-delay-4" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="index.html" class="btn btn-accent" data-magnetic>Return Home</a>
+          <a href="index.html#contact" class="btn btn-outline" data-magnetic>Contact Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
