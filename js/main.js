@@ -194,7 +194,41 @@
     });
   }
 
-  /* ── 11. SIDEBAR PORTRAIT — removed parallax to prevent visual drift glitches ── */
+  /* ── 11. SIDEBAR PROGRESSIVE REVEAL SYNC ──────────────── */
+  const sidebar = qs('.home-sidebar');
+  if (sidebar) {
+    const adjustSidebarScroll = () => {
+      if (window.innerWidth <= 860) {
+        sidebar.scrollTop = 0;
+        return;
+      }
+      
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+      
+      // Calculate max scrollable height of the sidebar
+      const maxSidebarScroll = sidebar.scrollHeight - sidebar.clientHeight;
+      if (maxSidebarScroll > 0) {
+        // Map 15% - 75% page scroll range to 0% - 100% sidebar scroll reveal progress
+        let progress = 0;
+        if (scrollPercent > 0.15) {
+          progress = (scrollPercent - 0.15) / 0.60;
+          if (progress > 1) progress = 1;
+        }
+        sidebar.scrollTop = progress * maxSidebarScroll;
+      }
+    };
+    
+    window.addEventListener('scroll', adjustSidebarScroll, { passive: true });
+    window.addEventListener('resize', adjustSidebarScroll, { passive: true });
+    window.addEventListener('load', adjustSidebarScroll);
+    
+    // Execute immediately and after load/paint frames
+    adjustSidebarScroll();
+    setTimeout(adjustSidebarScroll, 50);
+    setTimeout(adjustSidebarScroll, 250);
+  }
 
   /* ── 12. CAP / WORK CARDS — 3D tilt hover ─────────────── */
   if (window.matchMedia('(pointer: fine)').matches) {

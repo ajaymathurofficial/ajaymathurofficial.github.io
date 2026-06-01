@@ -35,7 +35,7 @@
   align-self: flex-start;
   /* sticky needs overflow:visible on parent — enforced in mobile.css */
   max-height: calc(100vh - 7rem);
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: visible;
   scrollbar-width: none;
 }
@@ -187,10 +187,10 @@
 
 /* ── Services block ── */
 .home-services {
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-md);
+  padding-top: 3.25rem;
+  padding-bottom: 1.75rem;
   border-bottom: 1px solid var(--border);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 3.25rem;
 }
 
 /* Bio CTA button row */
@@ -328,16 +328,16 @@
 
 /* ── Projects preview block ── */
 .home-projects {
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-lg);
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
   border-bottom: 1px solid var(--border);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 3.25rem;
 }
 
 /* ── CTA block — Sawad: LET'S WORK / ghost TOGETHER ── */
 .home-cta {
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-xl);
+  padding-top: 3.25rem;
+  padding-bottom: 5rem;
 }
 
 /* Sawad CTA: large display heading, two stacked lines */
