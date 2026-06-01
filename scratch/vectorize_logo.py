@@ -98,7 +98,7 @@ def vectorize():
     # The SVG should have viewbox matching cropped size: "0 0 cw ch"
     # We color white paths with #ffffff and orange paths with #f46c38 (theme accent)
     svg_content = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {cw} {ch}" width="{cw}" height="{ch}">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {cw} {ch}">',
         f'  <g fill="#ffffff" stroke="none" transform="translate(0.000000,{ch}.000000) scale(0.100000,-0.100000)">'
     ]
     

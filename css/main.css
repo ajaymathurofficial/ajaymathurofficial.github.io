@@ -301,9 +301,10 @@ body.cursor-hover #cursor-ring {
 }
 
 .logo__img {
-  height: 45px;
+  height: 40px;
   /* Elegant desktop height */
-  width: auto;
+  width: 160px;
+  /* Explicit width to prevent Safari layout scaling bug */
   display: block;
   image-rendering: -webkit-optimize-contrast;
   transition: transform var(--t-fast) ease, opacity var(--t-fast) ease;
@@ -527,8 +528,10 @@ body.cursor-hover #cursor-ring {
   }
 
   .logo__img {
-    height: 21px;
+    height: 30px;
     /* Tighter mobile height to balance with toggle */
+    width: 130px;
+    /* Explicit width to prevent Safari layout scaling bug */
   }
 
   /* ── Full-screen nav overlay container ── */
