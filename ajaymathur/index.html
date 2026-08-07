@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajay Mathur — Interactive CV & Professional Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Professional CV and Portfolio of Ajay Mathur, WordPress Developer & AWS Infrastructure Engineer with 5+ years of experience. Certified AWS Solutions Architect and Red Hat Engineer.">
+  <meta name="keywords" content="Ajay Mathur CV, Ajay Mathur Resume, WordPress Developer, AWS Solutions Architect, Red Hat Engineer, Collegedunia, Trade Nova, Web Developer India">
+  <meta name="author" content="Ajay Mathur">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ajay Mathur — Interactive CV & Professional Portfolio">
+  <meta property="og:description" content="WordPress Developer & AWS Infrastructure Engineer. View my skills, experience, and certified credentials.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ajaymathurofficial.github.io/ajaymathur/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="bg-glows" aria-hidden="true">
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="header-logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">ajaymathur.cv</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#summary" class="nav-link">Summary</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button onclick="window.print()" class="btn btn-secondary btn-sm print-hide">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print PDF
+        </button>
+        <button class="menu-toggle print-hide" id="menu-toggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <div class="hero-portrait reveal-fade-in">
+          <div class="portrait-wrapper">
+            <img src="../profile.png" alt="Ajay Mathur Portrait" class="portrait-img">
+          </div>
+          <div class="badge-container">
+            <span class="status-indicator"></span>
+            <span class="status-text">Available for Roles & Consulting</span>
+          </div>
+        </div>
+        <div class="hero-info">
+          <h1 class="hero-title reveal-fade-in reveal-delay-1">Ajay Mathur</h1>
+          <p class="hero-subtitle reveal-fade-in reveal-delay-2">WordPress Developer & AWS Infrastructure Engineer</p>
+          <p class="hero-tagline reveal-fade-in reveal-delay-3">
+            Specializing in Advanced Custom Fields (ACF) Architecture, Custom Theme/Plugin Engineering, and Scalable Cloud Hosting.
+          </p>
+          
+          <div class="contact-chips reveal-fade-in reveal-delay-4">
+            <a href="tel:+919310282075" class="chip">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              +91 9310282075
+            </a>
+            <a href="mailto:mailtomathurajay@gmail.com" class="chip">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              mailtomathurajay@gmail.com
+            </a>
+            <a href="https://ajaymathurofficial.github.io/" target="_blank" rel="noopener noreferrer" class="chip">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              ajaymathurofficial.github.io
+            </a>
+          </div>
+
+          <div class="hero-actions print-hide reveal-fade-in reveal-delay-5">
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="#experience" class="btn btn-secondary">Explore Career</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section id="summary" class="summary-section section-padding">
+      <div class="container">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="summary-card">
+          <p class="summary-text">
+            WordPress Developer & AWS Infrastructure Engineer with <strong>5+ years of experience</strong> specialising in WordPress development, Advanced Custom Fields (ACF) architecture, custom theme and plugin development, and high-conversion landing page delivery. Adept at building complex ACF-driven CMS solutions that empower non-technical teams to manage content at scale across education, design, travel, and enterprise portals. 
+          </p>
+          <p class="summary-text">
+            Extends core WordPress expertise with solid AWS infrastructure skills (EC2, ALB, ASG, VPC) to deliver scalable, secure, and highly available hosting environments for production WordPress sites. Certified AWS Solutions Architect and Red Hat Engineer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SUMMARY -->
+    <section id="skills" class="skills-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills Summary</h2>
+          <div class="skills-filter print-hide" id="skills-filter">
+            <button class="filter-btn active" data-filter="all">All Skills</button>
+            <button class="filter-btn" data-filter="cms">CMS & WordPress</button>
+            <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="marketing">SEO & Marketing</button>
+          </div>
+        </div>
+
+        <div class="skills-grid" id="skills-grid">
+          <!-- Skill 1 -->
+          <div class="skill-card" data-category="cms">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="skill-name">WordPress & Elementor Pro</h3>
+            <span class="skill-badge">Expert</span>
+            <p class="skill-desc">Custom WordPress Theme & Plugin Development, Elementor Pro Custom Widgets, Theme Builder, Dynamic Content, WooCommerce Builder, and Custom CSS/JS integration.</p>
+          </div>
+
+          <!-- Skill 2 -->
+          <div class="skill-card" data-category="cms">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            </div>
+            <h3 class="skill-name">Advanced CMS & ACF Pro</h3>
+            <span class="skill-badge">Advanced</span>
+            <p class="skill-desc">ACF Pro Architecture, Flexible Content Layouts, Repeater & Relationship Fields, Custom Options Pages, Gutenberg ACF Blocks, and REST API database customization.</p>
+          </div>
+
+          <!-- Skill 3 -->
+          <div class="skill-card" data-category="cms">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </div>
+            <h3 class="skill-name">PHP & MVC (AI-Assisted)</h3>
+            <span class="skill-badge">Advanced</span>
+            <p class="skill-desc">Building secure PHP web applications and MVC frameworks leveraging AI coding agents. Structured database security (SQLi prevention), XSS/CSRF defense protocols.</p>
+          </div>
+
+          <!-- Skill 4 -->
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a6 6 0 0 0 0-12z"></path></svg>
+            </div>
+            <h3 class="skill-name">AWS & Cloud Infrastructure</h3>
+            <span class="skill-badge">Certified</span>
+            <p class="skill-desc">Highly available structures on EC2, S3, AWS Lambda, Application Load Balancers (ALB), Auto Scaling Groups (ASG), secure VPC design, Route 53, and CloudWatch logging.</p>
+          </div>
+
+          <!-- Skill 5 -->
+          <div class="skill-card" data-category="cloud">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3 class="skill-name">DevOps & Linux Server</h3>
+            <span class="skill-badge">Expert</span>
+            <p class="skill-desc">Linux Systems Administration (Ubuntu, RedHat, CentOS), Nginx & Apache reverse proxies, SSL configurations, cPanel/WHM environments, Bash scripting, and Git workflows.</p>
+          </div>
+
+          <!-- Skill 6 -->
+          <div class="skill-card" data-category="frontend">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="skill-name">Frontend Development</h3>
+            <span class="skill-badge">Advanced</span>
+            <p class="skill-desc">HTML5 semantic structures, responsive layouts using modern CSS (Grid & Flexbox), vanilla JavaScript, jQuery, and Core Web Vitals/LCP speed optimization.</p>
+          </div>
+
+          <!-- Skill 7 -->
+          <div class="skill-card" data-category="marketing">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+            <h3 class="skill-name">SEO & Web Analytics</h3>
+            <span class="skill-badge">Certified</span>
+            <p class="skill-desc">Technical & On-Page SEO audit, schema markup injection, organic performance tuning, Google Analytics setup, conversion tracking, and Google Ads management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVOPS & VERSION CONTROL -->
+    <section class="devops-section section-padding">
+      <div class="container">
+        <h2 class="section-title">Version Control & DevOps Workflows</h2>
+        <div class="devops-grid">
+          <div class="devops-card">
+            <h3>Version Control</h3>
+            <p>Expert use of Git and GitHub for source code management, branch isolation strategies, pull request code reviews, and cross-team code collaboration workflows.</p>
+          </div>
+          <div class="devops-card">
+            <h3>CI/CD & Automation</h3>
+            <p>Designed and built automation pipelines using GitHub Actions, enabling quick, zero-downtime automated deployments from repository updates to staging and production servers.</p>
+          </div>
+          <div class="devops-card">
+            <h3>Release Management</h3>
+            <p>Handled coordinated releases for client sites. Configured automatic system snapshots, database backups, and server rollback procedures to guarantee service continuity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="experience-section section-padding">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="timeline">
+          <!-- Experience 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div class="timeline-title-row">
+                <h3 class="role-title">WordPress & Web Developer (Digital Agency Division)</h3>
+                <span class="timeline-date">Jan 2025 – March 2026</span>
+              </div>
+              <div class="company-row">
+                <span class="company-name">Trade Nova Technologies Private Limited</span>
+                <span class="company-location">Gurugram, India</span>
+              </div>
+            </div>
+            <div class="timeline-body">
+              <ul class="experience-list">
+                <li><strong>Advanced ACF Development:</strong> Architected complex ACF-powered WordPress solutions including Flexible Content layouts, Repeater fields, Relationship fields, and custom Options Pages -- enabling editorial teams to fully manage dynamic content without any developer involvement.</li>
+                <li><strong>Custom WordPress Development:</strong> Built custom WordPress themes and plugins from scratch tailored to client requirements; developed reusable ACF block components using Gutenberg (ACF Blocks) to accelerate delivery across multiple projects.</li>
+                <li><strong>Landing Page Development:</strong> Designed and developed high-conversion WordPress landing pages with ACF-managed content fields, focusing on fast load times, mobile-first responsive layout, clear CTAs, and lead generation optimisation.</li>
+                <li><strong>Performance Optimisation:</strong> Improved Core Web Vitals scores across client websites through server-side caching, image compression, database query optimisation, and CDN configuration -- significantly reducing page load times.</li>
+                <li><strong>CMS Architecture & Client Enablement:</strong> Designed intuitive ACF-driven CMS structures allowing non-technical clients to independently update content, reducing post-launch support dependency and improving client satisfaction.</li>
+                <li><strong>AWS Hosting & Deployment:</strong> Managed WordPress hosting and deployment on AWS (EC2, ALB, ASG) to ensure reliable, scalable production environments; handled DNS, SSL, server configuration, and automated backups.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div class="timeline-title-row">
+                <h3 class="role-title">Web Developer (WordPress) & DevOps Specialist</h3>
+                <span class="timeline-date">April 2022 – Jan 2025</span>
+              </div>
+              <div class="company-row">
+                <span class="company-name">Collegedunia</span>
+                <span class="company-location">Gurugram, India</span>
+              </div>
+            </div>
+            <div class="timeline-body">
+              <ul class="experience-list">
+                <li><strong>ACF-Driven CMS Architecture:</strong> Designed and implemented advanced ACF field groups, custom post types, and flexible content structures across the Collegedunia portal, enabling non-technical editors to manage thousands of college listings and course pages independently.</li>
+                <li><strong>High-Traffic AWS Hosting:</strong> Managed AWS EC2-backed hosting infrastructure for one of India's largest education portals, ensuring scalability and availability under heavy organic traffic loads.</li>
+                <li><strong>Responsive WordPress Development:</strong> Built SEO-optimized, responsive WordPress websites and landing pages; integrated Shopify for hybrid e-commerce workflows.</li>
+                <li><strong>Third-Party API Integration:</strong> Integrated third-party APIs and plugins to extend website functionality, improving user engagement and content delivery across the platform.</li>
+                <li><strong>Front-End Performance:</strong> Applied technical SEO and front-end optimization strategies, improving search rankings and reducing page load times across the portal.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div class="timeline-title-row">
+                <h3 class="role-title">SEO & Website Operations Executive</h3>
+                <span class="timeline-date">March 2020 – March 2022</span>
+              </div>
+              <div class="company-row">
+                <span class="company-name">Simpliweb</span>
+                <span class="company-location">Noida, India</span>
+              </div>
+            </div>
+            <div class="timeline-body">
+              <ul class="experience-list">
+                <li><strong>WordPress Development:</strong> Created WordPress websites tailored to client requirements, including custom themes, ACF-based content structures, and WooCommerce e-commerce solutions with payment gateway integrations.</li>
+                <li><strong>Linux Hosting & Server Management:</strong> Managed domain DNS, cPanel/WHM hosting environments, and Linux server configurations (RedHat, Ubuntu, CentOS) supporting Apache-based deployments.</li>
+                <li><strong>SEO Execution:</strong> Executed on-page and off-page SEO strategies, improving organic search visibility and traffic for multiple client websites; tracked results via Google Analytics.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Key Projects</h2>
+          <div class="projects-filter print-hide" id="projects-filter">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="php">Core PHP / MVC</button>
+            <button class="filter-btn" data-filter="wp">WordPress / ACF</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card" data-category="php">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">mountmonks.in</span>
+            </div>
+            <div class="project-content">
+              <h3>MountMonks</h3>
+              <p class="project-tech">Core PHP · Custom CMS · AI-assisted Development</p>
+              <p class="project-desc">Developed a premium travel and adventure platform using Core PHP with a custom-built CMS. Designed dynamic admin panels for managing trips, bookings, and content. Leveraged AI-assisted development tools to optimize code efficiency and reduce turnaround time.</p>
+              <a href="https://mountmonks.in" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card" data-category="php">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">ridesntreks.in</span>
+            </div>
+            <div class="project-content">
+              <h3>Rides n Treks</h3>
+              <p class="project-tech">Core PHP · Custom CMS · Cloud Deployment</p>
+              <p class="project-desc">Designed and developed a complete travel portal using Core PHP with a custom-built CMS. Configured, deployed, and hosted the platform on a cloud Ubuntu server, managing server configuration, security, and performance tuning.</p>
+              <a href="https://ridesntreks.in" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card" data-category="php">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">kumararchitects.in</span>
+            </div>
+            <div class="project-content">
+              <h3>Kumar Architects</h3>
+              <p class="project-tech">HTML5 · CSS3 · JS · AI-assisted Prototyping</p>
+              <p class="project-desc">Designed and developed a modern, responsive portfolio website for an architecture firm using HTML5, CSS3, and JavaScript. Utilised AI tools for rapid layout prototyping, CSS grid/flexbox structuring, and asset optimization.</p>
+              <a href="https://kumararchitects.in" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card" data-category="wp">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">js-instituteofdesign.com</span>
+            </div>
+            <div class="project-content">
+              <h3>JS Institute of Design</h3>
+              <p class="project-tech">WordPress · ACF Flexible Layouts</p>
+              <p class="project-desc">Developed the official WordPress website using ACF-based flexible content layouts for course pages, gallery sections, and programme details. Focused on responsive design, performance optimisation, and an intuitive editorial experience.</p>
+              <a href="https://js-instituteofdesign.com" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card" data-category="wp">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">rungta.ac.in</span>
+            </div>
+            <div class="project-content">
+              <h3>Rungta College</h3>
+              <p class="project-tech">WordPress · ACF CMS Architecture</p>
+              <p class="project-desc">Developed and managed the WordPress website implementing ACF-driven content structures for academic departments, admissions, and course listings to streamline content management for staff.</p>
+              <a href="https://rungta.ac.in" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card" data-category="wp">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">alliedchandigarh.com</span>
+            </div>
+            <div class="project-content">
+              <h3>Allied Chandigarh</h3>
+              <p class="project-tech">WordPress · ACF · Landing Page Optimization</p>
+              <p class="project-desc">Built a high-conversion admissions landing page using WordPress and ACF. Optimised for lead generation with fast load times, clear CTAs, and mobile-first responsive layout.</p>
+              <a href="https://www.alliedchandigarh.com" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="project-card" data-category="wp">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">universalai.in</span>
+            </div>
+            <div class="project-content">
+              <h3>Universal AI University</h3>
+              <p class="project-tech">WordPress · ACF CMS · AWS Auto-Scaling</p>
+              <p class="project-desc">Developed the main WordPress website implementing ACF-based content architecture for faculties, programmes, and institutional pages. Deployed landing pages for BTech and MBA programmes, optimised for lead generation and admissions campaigns.</p>
+              <a href="https://www.universalai.in" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 8 -->
+          <div class="project-card" data-category="wp">
+            <div class="project-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">ajmdisposal.com</span>
+            </div>
+            <div class="project-content">
+              <h3>AJM Disposal</h3>
+              <p class="project-tech">WordPress · Advanced Custom Fields</p>
+              <p class="project-desc">Designed and developed a professional WordPress website using ACF for structured service content management, ensuring easy client-side updates without technical knowledge.</p>
+              <a href="https://ajmdisposal.com" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & EDUCATION -->
+    <section id="certifications" class="certifications-section section-padding">
+      <div class="container">
+        <div class="edu-cert-grid">
+          
+          <!-- Certifications -->
+          <div class="certs-col">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certs-list">
+              <!-- Cert 1 -->
+              <div class="cert-item">
+                <div class="cert-badge">AWS</div>
+                <div class="cert-details">
+                  <h3>AWS Solutions Architect — Associate (SAA-C03)</h3>
+                  <p class="cert-meta">Amazon Web Services | Issued 2026</p>
+                </div>
+              </div>
+              <!-- Cert 2 -->
+              <div class="cert-item">
+                <div class="cert-badge">RHCE</div>
+                <div class="cert-details">
+                  <h3>Red Hat Certified Engineer (RHCE)</h3>
+                  <p class="cert-meta">Red Hat | Advanced Linux automation & system configuration | Issued 2018</p>
+                </div>
+              </div>
+              <!-- Cert 3 -->
+              <div class="cert-item">
+                <div class="cert-badge">RHCSA</div>
+                <div class="cert-details">
+                  <h3>Red Hat Certified System Administrator (RHCSA)</h3>
+                  <p class="cert-meta">Red Hat | Linux Administration | Issued 2018</p>
+                </div>
+              </div>
+              <!-- Cert 4 -->
+              <div class="cert-item">
+                <div class="cert-badge">SEO</div>
+                <div class="cert-details">
+                  <h3>Certified SEO Expert</h3>
+                  <p class="cert-meta">Industry Standard | Issued 2017</p>
+                </div>
+              </div>
+              <!-- Cert 5 -->
+              <div class="cert-item">
+                <div class="cert-badge">WP</div>
+                <div class="cert-details">
+                  <h3>WordPress Developer Certification</h3>
+                  <p class="cert-meta">Syntax World | Issued 2018</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="edu-col">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-list">
+              <div class="edu-item">
+                <div class="edu-degree-icon">BCA</div>
+                <div class="edu-details">
+                  <h3>Bachelor of Computer Applications (BCA)</h3>
+                  <p class="edu-college">Institute of Technology and Science (ITS)</p>
+                  <p class="edu-meta">Ghaziabad, Uttar Pradesh | 2013 – 2016</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section section-padding">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-card">
+          <div class="contact-grid">
+            <div class="contact-details">
+              <h3>Let's collaborate on your next project</h3>
+              <p>Whether you need custom WordPress development, ACF-driven architecture, or robust AWS hosting setups, feel free to reach out.</p>
+              
+              <ul class="contact-list">
+                <li>
+                  <strong>Phone:</strong>
+                  <a href="tel:+919310282075">+91 9310282075</a>
+                </li>
+                <li>
+                  <strong>Email:</strong>
+                  <a href="mailto:mailtomathurajay@gmail.com">mailtomathurajay@gmail.com</a>
+                </li>
+                <li>
+                  <strong>Website:</strong>
+                  <a href="https://ajaymathurofficial.github.io/" target="_blank" rel="noopener noreferrer">ajaymathurofficial.github.io</a>
+                </li>
+              </ul>
+            </div>
+            
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="form-name">Name</label>
+                  <input type="text" id="form-name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                  <label for="form-email">Email</label>
+                  <input type="email" id="form-email" required placeholder="john@example.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="form-subject">Subject</label>
+                <input type="text" id="form-subject" required placeholder="WordPress / AWS Project Consultation">
+              </div>
+              <div class="form-group">
+                <label for="form-message">Message</label>
+                <textarea id="form-message" rows="5" required placeholder="Hi Ajay, I'd like to discuss a project..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+              <div id="form-status" class="form-status" style="display:none;"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer print-hide">
+    <div class="container footer-content">
+      <p>&copy; 2026 Ajay Mathur. All Rights Reserved.</p>
+      <p>Designed with professional standards for portfolio review.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
