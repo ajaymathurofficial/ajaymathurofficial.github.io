@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Ajay Mathur — Interactive CV JavaScript
+   Ajay Mathur — Premium Interactive CV JavaScript
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 50);
           } else {
             card.style.opacity = '0';
-            card.style.transform = 'scale(0.95) translateY(10px)';
+            card.style.transform = 'scale(0.96) translateY(15px)';
             setTimeout(() => {
               card.style.display = 'none';
-            }, 300);
+            }, 500);
           }
         });
       });
@@ -132,56 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 50);
           } else {
             card.style.opacity = '0';
-            card.style.transform = 'scale(0.95) translateY(10px)';
+            card.style.transform = 'scale(0.96) translateY(15px)';
             setTimeout(() => {
               card.style.display = 'none';
-            }, 300);
+            }, 500);
           }
         });
       });
     });
   }
 
-  // 5. Contact Form Handler (Simulated Submit & Validation)
-  const contactForm = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-
-  if (contactForm && formStatus) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Show sending state
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending Message...';
-
-      // Simulate API post request
-      setTimeout(() => {
-        // Form response logic
-        formStatus.style.display = 'block';
-        formStatus.className = 'form-status success';
-        formStatus.textContent = 'Thank you! Your message has been sent successfully. I will get back to you shortly.';
-        
-        // Reset form
-        contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-
-        // Hide status after 5 seconds
-        setTimeout(() => {
-          formStatus.style.opacity = '0';
-          setTimeout(() => {
-            formStatus.style.display = 'none';
-            formStatus.style.opacity = '1';
-          }, 300);
-        }, 5000);
-
-      }, 1500);
-    });
-  }
-
-  // 6. Reveal Animations on Scroll (Simple lazy viewport trigger)
+  // 5. Reveal Animations on Scroll (Simple lazy viewport trigger)
   const animatedElements = document.querySelectorAll('.reveal-fade-in, .reveal-scale');
   
   const revealCallback = (entries, observer) => {
@@ -195,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const revealObserver = new IntersectionObserver(revealCallback, {
     root: null,
-    threshold: 0.15,
+    threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   });
 
